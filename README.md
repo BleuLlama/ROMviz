@@ -63,6 +63,8 @@ There are a few prerequisites for using these:
 - perl (scripts are written in perl)
 - ImageMagick tools ("convert") (image conversions)
 
+They have only been tested on Mac OS X 10.7 and 10.8.
+
 ## txt2bins.pl - Serial log to binary converter
 
 The first of the scripts (txt2bins.pl) will take the output from
@@ -74,9 +76,22 @@ millisecond time.
 Usage:  perl txt2bins.pl serialLog.txt
 
 
-##
+## Image-based conversion tools
 
-# bin2gif.pl - Convert Binary ROM files to GIF images
+The basic process for both of these tools is the same.  Both of
+them will work with an image file (GIF used, for ease of animations).
+Both of them work with ROM files that are bit-for-bit the same as 
+what was in the EPROM chip itself.  
+
+The EPROM data is packed 8 bits per byte.  The GIF data is unpacked
+to be one bit per pixel (one bit per byte, as it were), white or
+black, indicating a 1 or a 0 in the original EPROM.
+
+So if there are 100 bytes of data in the ROM, there are 100*8 or
+800 pixels on the display.
+
+
+### bin2gif.pl - Convert Binary ROM files to GIF images
 
 This perl script will take the ROM image binary files and convert
 them to be a 1 bit (black/white) GIF image file of appropriate
@@ -87,7 +102,7 @@ It will then convert them all into one animated gif file.
 Usage:  perl bin2gif.pl file1.bin file2.bin ...
 
 
-# gif2bin.pl - Convert GIF images to Binary ROM files
+### gif2bin.pl - Convert GIF images to Binary ROM files
 
 This perl script reads in one of these GIF files (or one of your
 creation) of the appropriate size (unchecked) and will save out a
