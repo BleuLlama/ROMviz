@@ -15,8 +15,7 @@
 // v1.0 Initial version. Read 32 bytes.
 //
 
-// NOTE: refer to the "schematic" included in this repository for
-//       connection information
+// NOTE: refer to the "schematics" folder for part connection information
 
 
 ////////////////////////////////////////////////////////////////////////////////
