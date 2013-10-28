@@ -55,28 +55,45 @@ the "Arduino/schematics" folder.
 
 # Desktop scripts
 
-## Serial Converter
+These are scripts to be run on your host computer to convert files around
+in different ways.
 
-The first of the scripts (named x) will take the output from the
-above (it reads in a log file of the dumped text) and detect where
-the rom images are, and will reconstitute the binary ROM image
+There are a few prerequisites for using these:
+
+- perl (scripts are written in perl)
+- ImageMagick tools ("convert") (image conversions)
+
+## txt2bins.pl - Serial log to binary converter
+
+The first of the scripts (txt2bins.pl) will take the output from
+the above (it reads in a log file of the dumped text) and detect
+where the rom images are, and will reconstitute the binary ROM image
 files, whose filenames are based on the input text file, and the
 millisecond time.
 
-## Image conversion tools
-
-There are three scripts here.  
-
-One will take the ROM image binary files and convert them to be a
-1 bit (black/white) GIF image file of appropriate dimensions.  One
-8-bit byte read in will become 8 horizontal pixels.
-
-The next script will take a series of these and convert them to be
-an animated GIF file.
-
-The final script will read in one of these GIF files (or one of
-your creation) of the appropriate size (unchecked) and will save
-out a binary ROM image file, suitable to be burned back to an EPROM
-device.
+Usage:  perl txt2bins.pl serialLog.txt
 
 
+##
+
+# bin2gif.pl - Convert Binary ROM files to GIF images
+
+This perl script will take the ROM image binary files and convert
+them to be a 1 bit (black/white) GIF image file of appropriate
+dimensions.  One 8-bit byte read in will become 8 horizontal pixels.
+
+It will then convert them all into one animated gif file.
+
+Usage:  perl bin2gif.pl file1.bin file2.bin ...
+
+
+# gif2bin.pl - Convert GIF images to Binary ROM files
+
+This perl script reads in one of these GIF files (or one of your
+creation) of the appropriate size (unchecked) and will save out a
+binary ROM image file, suitable to be burned back to an EPROM device.
+
+Note: this might work with file formats other than GIF, but that
+is untested.
+
+Usage: gif2bin.pl file1.gif file2.gif ...
