@@ -2,8 +2,8 @@
 
 $|=1;
 
-$fn = $argv[0];
-if( $fn == "" ){
+$fn = $ARGV[0];
+if( $fn eq "" ){
 	$fn = "roms.txt";
 }
 
