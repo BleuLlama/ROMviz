@@ -18,8 +18,8 @@ sub processOne
 	binmode OF;
 
 	$junk = <IF>; #P5
-	$junk = <IF>; ## from whatever
-	$junk = <IF>; #
+#	$junk = <IF>; ## from whatever
+#	$junk = <IF>; #
 	$res = <IF>; #128 256
 
 	($w, $h) = split / /,$res;
